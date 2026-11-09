@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartChoice Hub - Choose Smarter</title>
+<meta name="description" content="Make smarter buying decisions with SmartChoice Hub. Compare products, check value and choose confidently.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f7f9fc;color:#172033}
+header{background:#101d36;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:23px;font-weight:bold}
+.logo span{color:#53d6b0}
+nav a{color:white;text-decoration:none;margin-left:22px;font-size:14px}
+.hero{text-align:center;padding:75px 20px 55px;background:linear-gradient(135deg,#142544,#263f6a);color:white}
+.hero h1{font-size:43px;margin-bottom:16px}
+.hero h1 span{color:#53d6b0}
+.hero p{font-size:17px;color:#d9e3f4;line-height:1.6;max-width:650px;margin:auto}
+.container{max-width:950px;margin:35px auto;padding:0 18px}
+.panel{background:white;border-radius:16px;padding:28px;box-shadow:0 5px 25px #17203312}
+.panel h2{font-size:23px;margin-bottom:8px}
+.sub{color:#718096;font-size:14px;margin-bottom:24px}
+label{display:block;font-weight:bold;font-size:14px;margin:17px 0 8px}
+input,select,textarea{width:100%;padding:13px;border:1px solid #d9e0eb;border-radius:9px;font-size:15px;background:#fff}
+textarea{height:85px;resize:vertical}
+button{border:0;border-radius:9px;padding:14px 22px;background:#087f68;color:white;font-size:15px;font-weight:bold;cursor:pointer}
+button:hover{background:#066653}
+.main-btn{width:100%;margin-top:22px}
+.result{display:none;margin-top:25px;padding:20px;background:#eafaf5;border-radius:12px;line-height:1.7}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:25px}
+.feature{background:white;padding:22px;border-radius:13px;box-shadow:0 3px 16px #1720330c}
+.feature .icon{font-size:28px;margin-bottom:12px}
+.feature h3{margin-bottom:9px;font-size:17px}
+.feature p{font-size:14px;color:#718096;line-height:1.5}
+.section-title{text-align:center;margin:50px 0 20px}
+footer{text-align:center;background:#101d36;color:#cbd5e1;padding:25px;margin-top:55px;font-size:13px}
+@media(max-width:650px){
+.hero h1{font-size:32px}
+nav{display:none}
+.features{grid-template-columns:1fr}
+.panel{padding:20px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">SmartChoice<span> Hub</span></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#assistant">AI Assistant</a>
+<a href="#features">Features</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Think Smart. <span>Choose Right.</span></h1>
+<p>Your personal buying decision platform. Understand your needs, compare your options and make better purchase decisions.</p>
+</section>
+
+<div class="container" id="assistant">
+<div class="panel">
+<h2>Find Your Smart Choice</h2>
+<p class="sub">Tell us what you want to buy. Get a simple buying guide.</p>
+
+<form id="choiceForm">
+<label>What do you want to buy?</label>
+<input id="product" type="text" placeholder="Example: Smartphone, Laptop, Shoes" required>
+
+<label>Your budget (₹)</label>
+<input id="budget" type="number" placeholder="Example: 20000" min="1" required>
+
+<label>What matters most to you?</label>
+<select id="priority">
+<option value="quality">Best Quality</option>
+<option value="price">Lowest Price</option>
+<option value="value">Best Value for Money</option>
+<option value="durability">Long Life & Durability</option>
+</select>
+
+<label>How will you use it?</label>
+<textarea id="usage" placeholder="Describe your needs... Example: Daily use, office work, gaming"></textarea>
+
+<button class="main-btn" type="submit">Get My Buying Guide →</button>
+</form>
+
+<div class="result" id="result"></div>
+</div>
+
+<section id="features">
+<h2 class="section-title">Why SmartChoice Hub?</h2>
+<div class="features">
+<div class="feature">
+<div class="icon">🎯</div>
+<h3>Understand Your Needs</h3>
+<p>Find options based on your budget and requirements.</p>
+</div>
+<div class="feature">
+<div class="icon">⚖️</div>
+<h3>Smart Comparison</h3>
+<p>Understand what matters before buying a product.</p>
+</div>
+<div class="feature">
+<div class="icon">💰</div>
+<h3>Value for Money</h3>
+<p>Think about quality, price and long-term value.</p>
+</div>
+<div class="feature">
+<div class="icon">🔍</div>
+<h3>Review Risk Checker</h3>
+<p>Learn what to check in customer reviews before buying.</p>
+</div>
+<div class="feature">
+<div class="icon">🛡️</div>
+<h3>Hidden Cost Awareness</h3>
+<p>Remember warranty, maintenance and extra expenses.</p>
+</div>
+<div class="feature">
+<div class="icon">💡</div>
+<h3>Better Alternatives</h3>
+<p>Explore other options that may suit your needs.</p>
+</div>
+</div>
+</section>
+</div>
+
+<footer>
+<p>© 2026 SmartChoice Hub. Choose Smarter. Buy Better.</p>
+<p style="margin-top:8px">A smarter way to make buying decisions.</p>
+</footer>
+
+<script>
+document.getElementById("choiceForm").addEventListener("submit",function(e){
+e.preventDefault();
+
+const product=document.getElementById("product").value.trim();
+const budget=Number(document.getElementById("budget").value);
+const priority=document.getElementById("priority").value;
+const usage=document.getElementById("usage").value.trim();
+
+if(!product || budget<=0){
+alert("Please enter a product and a valid budget.");
+return;
+}
+
+const priorities={
+quality:"Compare build quality, performance and product reliability.",
+price:"Compare prices carefully, but don't ignore quality.",
+value:"Compare features, warranty and total cost before deciding.",
+durability:"Check material quality, warranty and long-term customer feedback."
+};
+
+const result=document.getElementById("result");
+result.style.display="block";
+result.innerHTML=`
+<h3>🧠 Your Buying Guide</h3>
+<p><b>Product:</b> ${escapeHTML(product)}</p>
+<p><b>Your budget:</b> ₹${budget.toLocaleString("en-IN")}</p>
+<p><b>Your priority:</b> ${priorities[priority]}</p>
+<p><b>Your usage:</b> ${escapeHTML(usage || "Not specified")}</p>
+<hr style="margin:14px 0;border:0;border-top:1px solid #cce9df">
+<p><b>Before buying, check these 5 things:</b></p>
+<ol style="padding-left:22px">
+<li>Compare at least 3 products.</li>
+<li>Check genuine customer reviews.</li>
+<li>Verify warranty and return policy.</li>
+<li>Check extra costs and maintenance.</li>
+<li>Choose only after comparing your needs and budget.</li>
+</ol>
+<p style="margin-top:12px"><b>Important:</b> This is an initial buying guide, not a live AI recommendation. Product prices and specifications have not been verified.</p>
+`;
+result.scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+function escapeHTML(value){
+return value.replace(/[&<>"']/g,function(c){
+return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+});
+}
+</script>
+
+</body>
+</html>
